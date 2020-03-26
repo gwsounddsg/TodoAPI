@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoAPI.Models;
 
+
+
+
+
 namespace TodoAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -15,10 +19,12 @@ namespace TodoAPI.Controllers
     {
         private readonly TodoContext _context;
 
+
         public TodoItemsController(TodoContext context)
         {
             _context = context;
         }
+
 
         // GET: api/TodoItems
         [HttpGet]
@@ -26,6 +32,7 @@ namespace TodoAPI.Controllers
         {
             return await _context.TodoItems.ToListAsync();
         }
+
 
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
@@ -40,6 +47,7 @@ namespace TodoAPI.Controllers
 
             return todoItem;
         }
+
 
         // PUT: api/TodoItems/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
@@ -73,6 +81,7 @@ namespace TodoAPI.Controllers
             return NoContent();
         }
 
+
         // POST: api/TodoItems
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -84,6 +93,7 @@ namespace TodoAPI.Controllers
 
             return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
         }
+
 
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
@@ -100,6 +110,7 @@ namespace TodoAPI.Controllers
 
             return todoItem;
         }
+
 
         private bool TodoItemExists(long id)
         {
